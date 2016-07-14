@@ -1,0 +1,21 @@
+	#PBS -N alignV4
+	#PBS -m bea
+	#PBS -M juren@email.arizona.edu
+	#PBS -W group_list=fungi
+	#PBS -q standard
+	#PBS -l select=1:ncpus=12:mem=23Gb
+	#PBS -l cput=30:0:0
+	#PBS -l walltime=15:0:0
+	#PBS -l jobtype=serial
+        #PBS -l pvmem=23Gb
+
+	module load mothur
+	#cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/hitman_input/cutadapt
+	#cd /rsgrps/bhurwitz/hurwitzlab/data/jana/silva16S
+	#mothur "#align.seqs(fasta=oligosTest.fasta.pcr.txt, reference=silva.nr_v123.align, processors=12)"
+	#cd /rsgrps/bhurwitz/hurwitzlab/amplicon-illumina/02_hitman_hire_out/make.contigs
+	#mothur "#align.seqs(fasta=mock.stability.trim.contigs.good.unique.fasta, reference=/rsgrps/bhurwitz/hurwitzlab/data/jana/silva16S/silva.V4.pcr.align, processors=12)"
+	#mothur "#seq.error(fasta=mock.stability.trim.contigs.good.unique.good.filter.precluster.pick.fasta, count=mock.stability.trim.contigs.good.unique.good.filter.precluster.denovo.uchime.pick.count_table, reference=HMP_MOCK.v51.fasta, aligned=F)"
+	cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/05_derep_sort
+	mothur "#align.seqs(fasta=V4_pearmerged.ee1trunc245derepmin3_rad3_uchime.fasta, reference=/rsgrps/bhurwitz/hurwitzlab/data/jana/silva16S/silva.V4.pcr.align, processors=12)"
+

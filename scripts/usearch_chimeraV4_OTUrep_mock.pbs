@@ -1,0 +1,20 @@
+	#PBS -N uschimera
+	#PBS -m bea
+	#PBS -M juren@email.arizona.edu
+	#PBS -W group_list=fungi
+	#PBS -q standard
+	#PBS -l select=1:ncpus=12:mem=23Gb
+	#PBS -l cput=30:0:0
+	#PBS -l walltime=15:0:0
+	#PBS -l jobtype=serial
+	#PBS -l pvmem=23Gb
+	
+	#cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/hitman_hire_out
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch8.1.1861_i86linux32 -uchime_ref V4merge_pairs.assembled.ee1trunc245_derep_min2rad5.fasta -db /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/gold16S/gold.fa -uchimeout V4merge_pairs.assembled.ee1trunc245_derep_min2rad5.uchime.txt -strand plus -nonchimeras V4merge_pairs.assembled.ee1trunc245_derep_min2rad5.uchime.fasta -threads 1 &> V4merge_pairs.assembled.ee1trunc245_derep_min2rad5.uchime.log
+	#cd /rsgrps/bhurwitz/hurwitzlab/amplicon-illumina/02_hitman_hire_out/make.contigs/usearch_merge
+	#cd /rsgrps/bhurwitz/hurwitzlab/amplicon-illumina/01_hitman_input/pear_merge
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch8.1.1861_i86linux32 -uchime_ref MockRun3hdrV4.merged.fastq.assembled_ee1_trunc245_derepmin3rad3.fasta -db /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/gold16S/gold.fa -uchimeout MockRun3hdrV4.merged.fastq.assembled_ee1_trunc245_derepmin3rad3.uchime.txt -strand plus -nonchimeras MockRun3hdrV4.merged.fastq.assembled_ee1_trunc245_derepmin3rad3.uchime.fasta -threads 1 &> MockRun3hdrV4.merged.fastq.assembled_ee1_trunc245_derepmin3rad3.uchime.log
+	cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/05_derep_sort
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch8.1.1861_i86linux32 -uchime_ref V4_pearmerged.ee1trunc245derepmin3_rad3.fasta -db /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/gold16S/gold.fa -uchimeout V4_pearmerged.ee1trunc245derepmin3_rad3_uchime.txt -strand plus -nonchimeras V4_pearmerged.ee1trunc245derepmin3_rad3_uchime.fasta -threads 1 &> V4_pearmerged.ee1trunc245derepmin3_rad3_uchime.log
+	/rsgrps/bhurwitz/hurwitzlab/bin/usearch8.1.1861_i86linux32 -uchime_ref Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245derepmin3_rad3.fasta -db /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/gold16S/gold.fa -uchimeout Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245derepmin3_rad3uchime.txt -strand plus -nonchimeras Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245derepmin3_rad3uchime.fasta -threads 1 &> Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245derepmin3_rad3uchime.log
+

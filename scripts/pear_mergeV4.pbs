@@ -1,0 +1,17 @@
+#!/bin/bash	
+
+#PBS -N pear
+#PBS -m bea
+#PBS -M jamesthornton@email.arizona.edu
+#PBS -W group_list=bhurwitz
+#PBS -q standard
+#PBS -l select=1:ncpus=12:mem=23Gb
+#PBS -l cput=24:00:00
+#PBS -l walltime=24:00:00
+#PBS -l jobtype=cluster_only
+#PBS -l pvmem=23Gb
+#PBS -l place=pack
+
+FILE_NAME=`basename $CUT_FILE | cut -d '.' -f 1`
+	
+$BIN_DIR/pear -f $CUT_OUT/$FILE_NAME.$F_PREFIX.cutrc_p.fastq -r $CUT_OUT/$FILE_NAME.$R_PREFIX.cutrc_p.fastq -o $CUT_OUT/$FILE_NAME.pearmerged.fastq -v $MIN_OVER -n $MIN_LEN -m $MAX_LEN -j $J_PARA &> $FILE_NAME.pearmerged.log

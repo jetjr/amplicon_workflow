@@ -1,0 +1,31 @@
+	#PBS -N filter
+	#PBS -m bea
+	#PBS -M juren@email.arizona.edu
+	#PBS -W group_list=fungi
+	#PBS -q standard
+	#PBS -l select=1:ncpus=1:mem=4Gb
+	#PBS -l place=pack:shared
+	#PBS -l cput=10:00:00
+	#PBS -l walltime=10:00:00
+	#PBS -l jobtype=serial
+
+	#cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/ITS_all_runs/
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch -fastq_filter Read1/Run1e_R1_ITS.fastq -fastqout Read1/Run1e_R1_ITS_ee1_trunc187.fastq -fastq_maxee 1.0 -fastq_trunclen 187 -threads 1 &> Read1/Run1e_R1_ITS_ee1_trunc187.log
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch -fastq_filter Read1/Run1_R1_ITS.fastq -fastqout Read1/Run1_R1_ITS_ee1_trunc187.fastq -fastq_maxee 1.0 -fastq_trunclen 187 -threads 1 &> Read1/Run1_R1_ITS_ee1_trunc187.log
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch -fastq_filter Read1/Run2_R1_ITS.fastq.aa -fastqout Read1/Run2_R1_ITS_ee1_trunc187.fastq.aa -fastq_maxee 1.0 -fastq_trunclen 187 -threads 1 &> Read1/Run2_R1_ITS_ee1_trunc187.log.aa
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch -fastq_filter Read1/Run2_R1_ITS.fastq.ab -fastqout Read1/Run2_R1_ITS_ee1_trunc187.fastq.ab -fastq_maxee 1.0 -fastq_trunclen 187 -threads 1 &> Read1/Run2_R1_ITS_ee1_trunc187.log.ab
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch -fastq_filter Read1/Run3_R1_ITS.fastq.aa -fastqout Read1/Run3_R1_ITS_ee1_trunc187.fastq.aa -fastq_maxee 1.0 -fastq_trunclen 187 -threads 1 &> Read1/Run3_R1_ITS_ee1_trunc187.log.aa
+	#/rsgrps/bhurwitz/hurwitzlab/bin/usearch -fastq_filter Read1/Run3_R1_ITS.fastq.ab -fastqout Read1/Run3_R1_ITS_ee1_trunc187.fastq.ab -fastq_maxee 1.0 -fastq_trunclen 187 -threads 1 &> Read1/Run3_R1_ITS_ee1_trunc187.log.ab
+
+	#cat Read1/Run2_R1_ITS_ee1_trunc187.fastq.aa Read1/Run2_R1_ITS_ee1_trunc187.fastq.ab > Read1/Run2_R1_ITS_ee1_trunc187.fastq
+	#cat Read1/Run3_R1_ITS_ee1_trunc187.fastq.aa Read1/Run3_R1_ITS_ee1_trunc187.fastq.ab > Read1/Run3_R1_ITS_ee1_trunc187.fastq
+	#cat Read1/Run2_R1_ITS_ee1_trunc187.log.aa Read1/Run2_R1_ITS_ee1_trunc187.log.ab > Read1/Run2_R1_ITS_ee1_trunc187.log
+        #cat Read1/Run3_R1_ITS_ee1_trunc187.log.aa Read1/Run3_R1_ITS_ee1_trunc187.log.ab > Read1/Run3_R1_ITS_ee1_trunc187.log
+
+	#cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/hitman_hire_out/ 
+	#/rsgrps/bhurwitz/hurwitzlab/bin/vsearch -fastq_filter Run2V4.R1.merge_pairs.assembled.Run2V4.fastq -fastqout Run2V4.R1.merge_pairs.assembled.Run2V4_ee1trunc245.fastq -fastq_maxee 1 -fastq_trunclen 245 -threads 1 &> Run2V4.R1.merge_pairs.assembled.Run2V4_ee1trunc245.log
+	
+	cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/03_merge_reads/
+        #/rsgrps/bhurwitz/hurwitzlab/bin/vsearch -fastq_filter Run1V4_pearmerged.fastq.assembled.fastq -fastqout Run1V4_pearmerged.fastq.assembled.fastq_ee1trunc245.fastq -fastq_maxee 1 -fastq_trunclen 245 -threads 1 &> Run1V4_pearmerged.fastq.assembled.fastq_ee1trunc245.log
+	#/rsgrps/bhurwitz/hurwitzlab/bin/vsearch -fastq_filter Run2V4_pearmerged.fastq.assembled.fastq -fastqout Run2V4_pearmerged.fastq.assembled.fastq_ee1trunc245.fastq -fastq_maxee 1 -fastq_trunclen 245 -threads 1 &> Run2V4_pearmerged.fastq.assembled.fastq_ee1trunc245.log
+	/rsgrps/bhurwitz/hurwitzlab/bin/vsearch -fastq_filter Run3V4_pearmerged.fastq.assembled.fastq -fastqout Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245.fastq -fastq_maxee 1 -fastq_trunclen 245 -threads 1 &> Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245.log

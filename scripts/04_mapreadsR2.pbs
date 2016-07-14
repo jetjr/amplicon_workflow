@@ -1,0 +1,18 @@
+	#PBS -N map
+	#PBS -m bea
+	#PBS -M juren@email.arizona.edu
+	#PBS -W group_list=fungi
+	#PBS -q standard
+	#PBS -l select=1:ncpus=12:mem=23Gb
+	#PBS -l cput=30:0:0
+	#PBS -l walltime=15:0:0
+	#PBS -l jobtype=serial
+	#PBS -l pvmem=23Gb
+	
+	#cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/ITS_all_runs/Read2/fastqfilter/
+	#/rsgrps/bhurwitz/hurwitzlab/bin/vsearch -usearch_global /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/ITS_all_runs/Read2/All_R2_ITS.fasta -db All_R2_ITS_ee1_trunc170_derep_Sanger_rad5.uchime.fasta -strand plus -id 0.95 -uc All_R2_ITS_ee1_trunc170_derep_Sanger_rad5.uchime.map.uc -sizein -sizeout -threads 1 &> All_R2_ITS_ee1_trunc170_derep_Sanger_rad5.uchime.map.log
+
+	cd /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/05_derep_sort
+	#/rsgrps/bhurwitz/hurwitzlab/bin/vsearch -usearch_global /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/03_merge_reads/V4_pearmerged.fasta -db V4_pearmerged.ee1trunc245derepmin3_rad3_uchime.fasta -strand plus -id 0.97 -uc V4_pearmerged.ee1trunc245derepmin3_rad3_uchime.map.uc -sizein -sizeout -threads 1 &> V4_pearmerged.ee1trunc245derepmin3_rad3_uchime.map.log
+	/rsgrps/bhurwitz/hurwitzlab/bin/vsearch -usearch_global /rsgrps/bhurwitz/hurwitzlab/data/jana/juren/data/IBEST/V4_all_runs/03_merge_reads/Run3V4_pearmerged.fastq.assembled.fasta -db Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245derepmin3_rad3uchime.fasta -strand plus -id 0.97 -uc Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245derepmin3_rad3uchime.map.uc -sizein -sizeout -threads 1 &> Run3V4_pearmerged.fastq.assembled.fastq_ee1trunc245derepmin3_rad3uchime.map.log
+
